@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <nav class="">
             <div class="logo">
-                <a href="">IFEBUCHE</a>
+                <a href="">IFEBUCH</a>
             </div>
             <div class="links">
                 <div class="link">
@@ -18,9 +26,7 @@
                 <div class="link">
                     <a href="#">Home</a>
                 </div>
-                <!-- <div class="link">
-                    <a href="#">Contact Us</a>
-                </div> -->
+
             </div>
         </nav>
         <footer>
@@ -30,11 +36,170 @@
 
         <div class="hero-video">
             <video autoplay loop muted>
-                <source src=""/>
+                <source src="/video2.mp4" type="video/mp4" />
             </video>
         </div>
+        <div class="blocks">
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+        </div>
+
+        <div class="header">
+            <div class="header-item">
+                <div class="header-item-wrapper h-1">
+                    <h1>I</h1>
+                </div>
+            </div>
+            <div class="header-item">
+                <div class="header-item-wrapper h-2">
+                    <h1>F</h1>
+                </div>
+            </div>
+            <div class="header-item">
+                <div class="header-item-wrapper h-3">
+                    <h1>E</h1>
+                </div>
+            </div>
+            <div class="header-item">
+                <div class="header-item-wrapper h-4">
+                    <h1>B</h1>
+                </div>
+            </div>
+            <div class="header-item">
+                <div class="header-item-wrapper h-5">
+                    <h1>U</h1>
+                </div>
+            </div>
+            <div class="header-item">
+                <div class="header-item-wrapper h-6">
+                    <h1>C</h1>
+                </div>
+            </div>
+            <div class="header-item">
+                <div class="header-item-wrapper h-7">
+                    <h1>H</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="counter">
+            <p class="">
+                3 <br />
+                2 <br />
+                1 <br />
+            </p>
+        </div>
+        <div class="tagline">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae ab molestias praesentium facilis vel
+                natus
+                temporibus eos iste corrupti consequatur!</p>
+        </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
-    <script src="/js.js"></script>
+    <script>
+        const tl = gsap.timeline({
+            delay: 1.75
+        });
+        const movements = [-100, 300, 150, -300, 150, -300, -90, 100, -200];
+
+        gsap.set("h1", { y: 100 });
+        gsap.set(".counter p", { y: 35 });
+
+
+        tl.to("h1", {
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.1,
+        });
+
+        tl.to(
+            ".counter p",
+            {
+                y: 0,
+                duration: 0.5,
+                ease: "power3.out",
+            },
+            "-=0.5"
+        );
+
+        tl.to(
+            ".counter p",
+            {
+                y: -35,
+                duration: 0.5,
+                ease: "power3.out",
+                delay: 0.5,
+            });
+        tl.to(
+            ".counter p",
+            {
+                y: -70,
+                duration: 0.5,
+                ease: "power3.out",
+                delay: 0.5,
+
+            });
+        tl.to(
+            ".counter p",
+            {
+                y: -105,
+                duration: 0.5,
+                ease: "power3.out",
+                delay: 0.75,
+
+            });
+
+        tl.from(".tagline", {
+            y: 40,
+            opacity: 0,
+        }, "-=4");
+
+        tl.to("h1", {
+            fontSize: "15vw",
+            duration: 1,
+            ease: "power3.out",
+        })
+
+        tl.to("header-item", {
+            clipPath: "none",
+            duration: 0.1,
+
+        }, "<");
+
+        tl.to(".block", {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 0.5,
+            stagger: {
+                amount: 0.5,
+                from: "random",
+                ease: "power3.out",
+            }
+        }, "<"
+        )
+
+        movements.forEach((move, index) => {
+            tl.to(
+                `.h-${index + 1}`,
+                {
+                    y: move,
+                    duration: 1,
+                    ease: "power3.out",
+                },
+                "<"
+            )
+        })
+
+        tl.from(".logo, .link, footer p", {
+            y: 40,
+            opacity: 0,
+        })
+    </script>
 </body>
+
 </html>
