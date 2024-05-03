@@ -4,13 +4,13 @@
     box-sizing: border-box;
     /* scrollbar-width: 0%; */
 }
-/* body{
+body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
 
-} */
+}
 
 /* video{
     overflow: hidden;
@@ -18,7 +18,7 @@
 .container {
     width: 100vw;
     height: 100vh;
-overflow: hidden;
+overflow-x: hidden;
 }
 
 
